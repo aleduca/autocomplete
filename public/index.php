@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 
 </head>
+
 <body>
   <div class="container">
     <div class="mt-5">
@@ -17,9 +19,10 @@
       <label for="" class="label-control">Book</label>
       <div id="autocomplete"></div>
     </div>
-  </div>  
+  </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js" integrity="sha512-0qU9M9jfqPw6FKkPafM3gy2CBAvUWnYVOfNPDYKVuRTel1PrciTj+a9P3loJB+j0QmN2Y0JYQmkBBS8W+mbezg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.6/underscore-umd-min.js"></script>
   <script src="/assets/js/index.js"></script>
 </body>
+
 </html>

@@ -10,9 +10,10 @@ searchInput.addEventListener('focusin', event => {
 
 
 searchInput.addEventListener('focusout', event => {
-  autocomplete.style.display = 'none';
+  setTimeout(() => {
+    autocomplete.style.display = 'none';
+  }, 100);
 })
-
 
 searchInput.addEventListener('input', _.throttle(async event => {
   try {
@@ -24,13 +25,13 @@ searchInput.addEventListener('input', _.throttle(async event => {
     }
 
     if (event.target.value.length >= 4) {
-      
+
       const { data } = await axios.get('/books.php', {
         params: {
           book:event.target.value
         }
       })
-      
+
       if (!data.length) {
         autocomplete.style.display = 'block';
         autocomplete.innerHTML = '<div id="notfound">Book not found</div>';
@@ -41,16 +42,15 @@ searchInput.addEventListener('input', _.throttle(async event => {
       var booksFound = '<ul>';
       booksFound += data.map(book => {
         return `
-        <li><a href="/book/${book.id}">${book.title}</a></li>
+        <li class="bookLi"><a href="/book/${book.id}">${book.title}</a></li>
         `
       }).join('');
       booksFound += '</ul>';
-      
-      autocomplete.innerHTML = booksFound;
 
+      autocomplete.innerHTML = booksFound;
     }
   } catch (error) {
     console.log(error)
-  } 
- 
+  }
+
 }, 500))
